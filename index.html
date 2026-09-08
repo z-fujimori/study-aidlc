@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AI-DLC（AI-Driven Development Life Cycle）を体系的に学ぶための実践ガイド">
+<title>AI-DLC 実践ガイド</title>
+<style>
+:root{--ink:#18232b;--muted:#63717a;--paper:#fbfaf6;--card:#fff;--line:#dfe4df;--teal:#087f78;--dark:#075b58;--coral:#e26d50;--yellow:#f5c95b;--blue:#dceff0;--shadow:0 18px 50px rgba(24,35,43,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.8}h1,h2,h3,.eyebrow,nav{font-family:Georgia,"Hiragino Mincho ProN",serif}a{color:var(--dark)}
+.hero{overflow:hidden;position:relative;padding:26px max(24px,calc((100% - 1120px)/2)) 78px;background:radial-gradient(circle at 86% 17%,#f5c95b 0 7%,transparent 7.2%),linear-gradient(135deg,#d9eeee,#f8f1df 66%,#f9d4c5)}.hero:after{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(8,127,120,.25);border-radius:50%;right:-130px;bottom:-250px;box-shadow:0 0 0 35px rgba(8,127,120,.05),0 0 0 70px rgba(8,127,120,.035)}
+nav{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;max-width:1120px;margin:auto}.brand{font-size:20px;font-weight:bold;letter-spacing:.06em}nav a{margin-left:20px;font-size:13px;text-decoration:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;max-width:1120px;margin:88px auto 0;position:relative;z-index:1}.eyebrow{color:var(--dark);font-size:14px;letter-spacing:.15em;text-transform:uppercase}h1{font-size:clamp(42px,6vw,78px);line-height:1.08;margin:15px 0 24px;letter-spacing:-.04em}.hero p{max-width:600px;font-size:18px}.hero-card{background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.9);padding:28px;box-shadow:var(--shadow);transform:rotate(2deg)}.hero-card strong{display:block;color:var(--dark);font-size:42px;font-family:Georgia,serif;line-height:1}.hero-card span{display:block;margin:10px 0 16px;font-size:14px}.hero-card code{display:block;padding:12px;background:#17373a;color:#e6f7e7;font-size:12px}
+main{max-width:1120px;margin:auto;padding:78px 24px}section{margin:0 0 100px;scroll-margin-top:30px}.section-label{color:var(--coral);font:14px Georgia,serif;letter-spacing:.12em}h2{margin:8px 0 18px;font-size:clamp(30px,4vw,48px);line-height:1.25;letter-spacing:-.03em}h3{margin:0 0 8px;font-size:23px}.lead{color:var(--muted);max-width:760px;font-size:17px}.definition{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}.card{background:var(--card);border:1px solid var(--line);padding:28px;box-shadow:0 8px 26px rgba(24,35,43,.04)}.card.accent{border-top:5px solid var(--teal)}.card.warn{border-top:5px solid var(--yellow)}.callout{margin-top:26px;padding:20px 24px;background:#edf7f3;border-left:5px solid var(--teal)}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}.phase{position:relative;min-height:260px;padding:26px;color:white;background:var(--dark)}.phase:nth-child(2){background:#be593f}.phase:nth-child(3){background:#326779}.phase .num{font:54px Georgia,serif;opacity:.34;line-height:1}.phase h3{margin-top:12px}.phase p{font-size:14px;opacity:.92}.flow{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:8px;margin:32px 0}.flow div{padding:16px 8px;text-align:center;background:var(--blue);font-size:13px;border-radius:2px}.flow b{text-align:center;color:var(--coral)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.checklist{padding:0;list-style:none}.checklist li{position:relative;padding:9px 0 9px 30px;border-bottom:1px dashed var(--line)}.checklist li:before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:bold}
+table{width:100%;border-collapse:collapse;margin-top:26px;background:white;font-size:14px}th,td{padding:15px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{color:white;background:var(--dark);font-weight:normal}pre{overflow-x:auto;padding:22px;color:#e8f5e8;background:#17373a;font-size:13px;line-height:1.7}details{padding:18px 0;border-bottom:1px solid var(--line)}summary{cursor:pointer;font-weight:bold}footer{padding:35px 24px;color:white;background:#17373a;font-size:13px}footer div{max-width:1120px;margin:auto}footer a{color:#bce8dc}
+@media(max-width:760px){.hero{padding-top:18px;padding-bottom:55px}nav div:last-child{display:none}.hero-grid,.definition,.two-col{grid-template-columns:1fr;gap:28px}.hero-grid{margin-top:55px}.hero-card{transform:none}.phases{grid-template-columns:1fr}.phase{min-height:auto}.flow{grid-template-columns:1fr}.flow b{transform:rotate(90deg)}main{padding-top:55px}section{margin-bottom:72px}table{display:block;overflow-x:auto;white-space:nowrap}}
+</style>
+</head>
+<body>
+<header class="hero">
+<nav><div class="brand">AI-DLC / FIELD GUIDE</div><div><a href="#what">概要</a><a href="#phases">フェーズ</a><a href="#practice">実践</a><a href="team-example.html">3人チーム例</a></div></nav>
+<div class="hero-grid"><div><div class="eyebrow">AI-Driven Development Life Cycle</div><h1>AIと開発する。<br>開発を設計する。</h1><p>AI-DLCは、生成AIを「コードを書く道具」から「開発ライフサイクルを一緒に運転するパートナー」へ位置づけ直すための考え方です。</p></div><div class="hero-card"><strong>3 phases</strong><span>意図を揃え、構築し、運用から学ぶ</span><code>inception → construction → operations</code></div></div>
+</header>
+<main>
+<section id="what"><div class="section-label">01 / CONCEPT</div><h2>AI-DLCとは何か</h2><p class="lead">一般にAI-DLCは <b>AI-Driven Development Life Cycle</b> の略で、AIを開発工程の一部に後付けするのではなく、要件定義から運用・改善までの流れに組み込む開発方法論を指します。</p><div class="definition"><div class="card accent"><h3>中心にある発想</h3><p>人間は目的、制約、優先順位、最終判断を担う。AIは調査、整理、設計案、実装、テスト、文書化を高速に支援する。役割を分け、成果物を介して協働します。</p></div><div class="card warn"><h3>誤解しやすい点</h3><p>「AIに一度プロンプトを投げれば完成する」という話ではありません。曖昧さを減らし、検証可能な小さな成果物に分け、各段階で人間が承認することが肝です。</p></div></div><div class="callout"><b>ひとことで言うと：</b> AI-DLCは、AIの利用技術というより、AIを前提に再設計した開発プロセスです。</div></section>
+<section id="phases"><div class="section-label">02 / THE CYCLE</div><h2>3つのフェーズで見る</h2><p class="lead">名称や細かな活動は組織によって異なりますが、AI-DLCの代表的な整理は「Inception・Construction・Operations」です。重要なのは、フェーズを順番に消化することではなく、学びを次の判断へ戻すことです。</p><div class="phases"><article class="phase"><div class="num">01</div><h3>Inception<br>立ち上げ</h3><p>目的、利用者、成功条件、スコープ、リスクを揃える。AIには議論の壁打ちや論点整理を任せ、人間が「何を作らないか」まで決めます。</p></article><article class="phase"><div class="num">02</div><h3>Construction<br>構築</h3><p>設計、実装、テスト、レビューを短いサイクルで回す。AIが生成したコードは必ずテスト、静的解析、レビューで検証し、変更理由を記録します。</p></article><article class="phase"><div class="num">03</div><h3>Operations<br>運用</h3><p>デプロイ後のログ、品質、利用状況、コストを観測する。得られた事実を要件やプロンプト、テストケースへ戻し、継続的に改善します。</p></article></div><div class="flow"><div>意図を定義</div><b>→</b><div>小さく構築</div><b>→</b><div>観測して学習</div></div></section>
+<section><div class="section-label">03 / RESPONSIBILITY</div><h2>人間とAIの分担</h2><div class="two-col"><div><h3>AIが得意なこと</h3><ul class="checklist"><li>大量の情報を要約・分類する</li><li>複数の設計案や実装案を出す</li><li>定型コード、テスト、文書を作る</li><li>見落としやすい観点を列挙する</li><li>ログや差分からパターンを探す</li></ul></div><div><h3>人間が担うこと</h3><ul class="checklist"><li>事業目的と優先順位を決める</li><li>顧客・現場の暗黙知を判断する</li><li>セキュリティ、法務、倫理の責任を持つ</li><li>本番リリースの承認を行う</li><li>AIの出力を検証し、採用・却下する</li></ul></div></div></section>
+<section id="practice"><div class="section-label">04 / IN PRACTICE</div><h2>実務での進め方</h2><table><thead><tr><th>場面</th><th>入力するもの</th><th>AIに依頼すること</th><th>人間の確認ポイント</th></tr></thead><tbody><tr><td>要件整理</td><td>課題、ユーザー像、制約</td><td>曖昧な点、前提、受入条件を抽出</td><td>本当に解くべき課題か</td></tr><tr><td>設計</td><td>要件、既存構成、非機能要件</td><td>選択肢とトレードオフを比較</td><td>将来の運用・障害時に耐えるか</td></tr><tr><td>実装</td><td>承認済み設計、規約</td><td>小さな単位でコードとテストを生成</td><td>差分、境界値、依存関係</td></tr><tr><td>運用</td><td>ログ、メトリクス、問い合わせ</td><td>異常の仮説、改善候補を整理</td><td>事実と推測が分かれているか</td></tr></tbody></table></section>
+<section><div class="section-label">05 / PROMPT PATTERN</div><h2>使えるプロンプトの型</h2><p class="lead">AI-DLCでは、依頼文そのものを成果物の一部として扱います。目的だけでなく、前提・制約・出力形式・検証方法を明示すると、やり直しが減ります。</p><pre><code># 役割
+あなたはシニアソフトウェアエンジニアです。
+
+# 目的
+ユーザー登録APIの要件を、実装可能な仕様に整理してください。
+
+# 前提・制約
+- 既存APIはREST、認証はJWT
+- 個人情報をログに出さない
+- 未確定事項は勝手に補完せず「要確認」とする
+
+# 出力形式
+1. 前提  2. ユースケース  3. API仕様  4. 受入条件
+最後に、仕様を確定するための質問を最大5つ挙げてください。
+
+# 検証
+各受入条件が、どのテストで確認できるか対応付けてください。</code></pre></section>
+<section><div class="section-label">06 / GOVERNANCE</div><h2>導入時のリスクと対策</h2><div class="definition"><div class="card"><h3>品質のばらつき</h3><p>コーディング規約、Definition of Done、CI、レビュー観点を先に整備し、AIの出力を「下書き」として扱う基準を共有します。</p></div><div class="card"><h3>情報漏えい</h3><p>入力してよいデータの分類、匿名化、利用モデルのポリシー、監査ログを定めます。秘密情報や本番データをそのまま入力しません。</p></div><div class="card"><h3>責任の所在</h3><p>各成果物に作成者・レビュアー・承認者を記録します。AIを使ったことは責任の移転を意味しません。</p></div><div class="card"><h3>過剰な自動化</h3><p>高リスク操作は人間の承認を必須にし、自動デプロイや自動修正は権限とロールバックを前提にします。</p></div></div></section>
+<section><div class="section-label">07 / FAQ</div><h2>よくある質問</h2><details><summary>アジャイルやDevOpsとは何が違いますか？</summary><p>競合するものではありません。アジャイルの反復、DevOpsの開発・運用連携に、AIとの協働を組み込んだ考え方と捉えると理解しやすいです。</p></details><details><summary>最初から全工程をAI化すべきですか？</summary><p>いいえ。議事録の構造化、テスト生成、文書更新など、失敗時の影響が小さく効果を測りやすい領域から始めるのが現実的です。</p></details><details><summary>AI-DLCの成功を何で測りますか？</summary><p>生成量ではなく、リードタイム、手戻り、欠陥数、テスト網羅性、運用インシデント、開発者の認知負荷など、成果と品質の両方で測ります。</p></details></section>
+<section><div class="section-label">08 / TAKEAWAY</div><h2>導入の最初の一歩</h2><div class="card accent"><ol><li>対象業務を1つ選び、現状の時間・品質・リスクを記録する</li><li>AIに任せる範囲と、人間の承認ポイントを決める</li><li>入力テンプレート、出力形式、検証チェックリストを作る</li><li>2〜4週間試行し、数字と現場の声で見直す</li></ol></div><p class="lead">AI-DLCの本質は、AIに仕事を渡すことではありません。人間が判断すべき仕事に集中できるよう、開発の流れと判断の境界を設計し直すことです。</p></section>
+</main>
+<footer><div>参考：<a href="https://www.ibm.com/think/topics/ai-dlc" target="_blank" rel="noreferrer">IBM: AI-DLC</a> / <a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/" target="_blank" rel="noreferrer">AWS DevOps Blog</a> / <a href="https://awslabs.github.io/aidlc-workflows/guide/00-introduction/" target="_blank" rel="noreferrer">AWS Labs: AI-DLC Workflows</a><br>この資料はAI-DLCの代表的な考え方を学習用に整理したものです。組織ごとの定義・規程に合わせて調整してください。</div></footer>
+</body>
+</html>

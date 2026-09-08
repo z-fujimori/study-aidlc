@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-DLC 3人チーム実践例</title>
+  <style>
+    :root{--ink:#18232b;--muted:#64727a;--paper:#fbfaf6;--card:#fff;--line:#dfe4df;--teal:#087f78;--dark:#075b58;--coral:#e26d50;--yellow:#f5c95b;--blue:#e4f1f0}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.8}h1,h2,h3,nav,.label{font-family:Georgia,"Hiragino Mincho ProN",serif}a{color:var(--dark)}
+    .hero{padding:24px max(24px,calc((100% - 1100px)/2)) 70px;background:linear-gradient(120deg,#dff1ef,#f8f0dd 60%,#f7d4c5)}nav{display:flex;justify-content:space-between;max-width:1100px;margin:auto}.brand{font-weight:bold;letter-spacing:.06em}nav a{margin-left:18px;font-size:13px;text-decoration:none}.hero-inner{max-width:1100px;margin:80px auto 0}.label{color:var(--coral);font-size:14px;letter-spacing:.14em}.hero h1{font-size:clamp(38px,6vw,70px);line-height:1.1;letter-spacing:-.04em;margin:14px 0}.hero p{max-width:720px;font-size:18px}
+    main{max-width:1100px;margin:auto;padding:70px 24px}section{margin-bottom:88px;scroll-margin-top:30px}h2{font-size:clamp(28px,4vw,45px);line-height:1.25;margin:7px 0 18px;letter-spacing:-.03em}h3{font-size:22px;margin:0 0 8px}.lead{color:var(--muted);max-width:760px;font-size:17px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);padding:24px}.role{border-top:5px solid var(--teal)}.role:nth-child(2){border-color:var(--coral)}.role:nth-child(3){border-color:var(--yellow)}.role small{color:var(--muted)}.role ul,.card ul{padding-left:20px;margin-bottom:0}
+    .week{display:grid;grid-template-columns:110px 1fr;gap:0;margin-top:28px}.day{padding:17px 12px;color:white;background:var(--dark);font-weight:bold}.day:nth-of-type(2n){background:#326779}.work{padding:17px 22px;border-bottom:1px solid var(--line);background:white}.work strong{color:var(--dark)}.tag{display:inline-block;margin:4px 5px 0 0;padding:1px 8px;color:var(--dark);background:var(--blue);font-size:12px;border-radius:20px}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:28px 0}.step{padding:19px;background:var(--blue);border-top:4px solid var(--teal)}.step:nth-child(2){border-color:var(--coral)}.step:nth-child(3){border-color:#326779}.step:nth-child(4){border-color:var(--yellow)}.step b{display:block;margin-bottom:7px;color:var(--dark)}
+    pre{overflow:auto;padding:22px;background:#17373a;color:#e8f5e8;font-size:13px;line-height:1.7}.note{padding:20px 24px;background:#fff5d9;border-left:5px solid var(--yellow);margin-top:24px}.deliverables{display:grid;grid-template-columns:1fr 1fr;gap:16px}.deliverables .card{border-left:4px solid var(--coral)}table{width:100%;border-collapse:collapse;margin-top:24px;background:white;font-size:14px}th,td{padding:14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{color:white;background:var(--dark);font-weight:normal}.check{list-style:none;padding:0}.check li{padding:8px 0 8px 28px;border-bottom:1px dashed var(--line);position:relative}.check li:before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:bold}footer{padding:32px 24px;color:white;background:#17373a;font-size:13px}footer div{max-width:1100px;margin:auto}footer a{color:#bce8dc}
+    @media(max-width:720px){nav a{display:none}.hero-inner{margin-top:55px}.grid,.deliverables,.flow{grid-template-columns:1fr}.week{grid-template-columns:75px 1fr}.work{padding:15px}.hero{padding-bottom:50px}main{padding-top:50px}section{margin-bottom:65px}table{display:block;overflow-x:auto;white-space:nowrap}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav><div class="brand">AI-DLC / TEAM CASE</div><div><a href="#team">チーム</a><a href="#week">1週間</a><a href="#flow">流れ</a><a href="index.html">基礎資料</a></div></nav>
+    <div class="hero-inner"><div class="label">A CONCRETE 3-PERSON SCENARIO</div><h1>3人で、AI-DLCを<br>どう使うか。</h1><p>「社内備品予約アプリ」を、企画担当・開発担当・品質／運用担当の3人で1週間試作するケースです。AIは4人目のように振る舞いますが、承認者にはなりません。</p></div>
+  </header>
+  <main>
+    <section id="team">
+      <div class="label">01 / TEAM DESIGN</div><h2>まず、責任の境界を決める</h2><p class="lead">少人数チームでは、1人が複数の役割を持ちます。大切なのは肩書きではなく、各成果物の「作成・レビュー・承認」が誰にあるかを曖昧にしないことです。</p>
+      <div class="grid"><article class="card role"><h3>佐藤：プロダクト担当</h3><small>目的と優先順位の責任者</small><ul><li>利用者へのヒアリング</li><li>要件・受入条件の承認</li><li>スコープと優先順位の決定</li><li>AIへの入力情報を提供</li></ul></article><article class="card role"><h3>鈴木：開発担当</h3><small>設計と実装の責任者</small><ul><li>技術選定とアーキテクチャ</li><li>AI生成コードの統合</li><li>単体テストとCIの整備</li><li>変更差分の説明</li></ul></article><article class="card role"><h3>田中：品質・運用担当</h3><small>検証とリリース判断の責任者</small><ul><li>テスト計画とリスク確認</li><li>セキュリティ観点のレビュー</li><li>ログ・監視・ロールバック設計</li><li>リリース可否の承認</li></ul></article></div>
+      <div class="note"><b>AIの扱い：</b> AIは調査員、設計レビュアー、実装補助、テスト作成者として使います。チャットの回答を正式な決定にせず、必ずリポジトリ内の仕様書・Issue・レビュー記録に落とします。</div>
+    </section>
+    <section id="week">
+      <div class="label">02 / ONE-WEEK SPRINT</div><h2>1週間の進行例</h2><p class="lead">毎日、短い同期時間を設けます。AIとの作業は個別に進めても、成果物と判断だけはチームで共有します。</p>
+      <div class="week"><div class="day">月曜<br>Inception</div><div class="work"><strong>課題と成功条件を定義</strong><br>佐藤がヒアリング結果を提示。AIにユーザーストーリー、未確定事項、受入条件の候補を整理させ、3人でMVP範囲を承認します。<br><span class="tag">成果物：product-brief.md</span><span class="tag">成果物：決定ログ</span></div><div class="day">火曜<br>Inception</div><div class="work"><strong>設計を小さく確定</strong><br>鈴木が既存構成を説明し、AIにAPI・DB設計の選択肢を比較させます。田中は認証、権限、個人情報、障害時の観点をレビューします。<br><span class="tag">成果物：design.md</span><span class="tag">成果物：リスク一覧</span></div><div class="day">水曜<br>Construction</div><div class="work"><strong>縦切りで最小機能を実装</strong><br>「備品一覧を表示する」など、動く単位でIssueを分割。鈴木がAIに実装案を出させ、ローカルで実行・修正し、プルリクエストを作成します。<br><span class="tag">成果物：PR #1</span><span class="tag">成果物：テスト</span></div><div class="day">木曜<br>Construction</div><div class="work"><strong>予約機能とレビュー</strong><br>AIに境界値・競合予約・権限エラーのテストケースを追加させます。田中は生成テストを鵜呑みにせず、要件との対応を確認します。<br><span class="tag">成果物：PR #2</span><span class="tag">成果物：テスト結果</span></div><div class="day">金曜<br>Operations</div><div class="work"><strong>試験導入と振り返り</strong><br>少人数へデプロイし、利用状況とエラーを観測。AIにログの傾向を要約させ、3人で「継続・修正・中止」を判断して次スプリントへ戻します。<br><span class="tag">成果物：運用メモ</span><span class="tag">成果物：次のIssue</span></div></div>
+    </section>
+    <section id="flow">
+      <div class="label">03 / WORKING LOOP</div><h2>1つのIssueを回す流れ</h2><p class="lead">AI-DLCでは、プロンプトを工夫するだけでなく、AIの出力を検証可能な工程に接続します。例えば「備品を予約する」機能は次のように進めます。</p>
+      <div class="flow"><div class="step"><b>1. 意図を渡す</b>ユーザーストーリー、制約、完了条件を入力する。</div><div class="step"><b>2. 案を出す</b>AIにAPI、DB、画面、テストの案を分けて作らせる。</div><div class="step"><b>3. 人間が選ぶ</b>チームがトレードオフを確認し、採用案を決定する。</div><div class="step"><b>4. 検証する</b>CI、レビュー、手動確認、ログで完了条件を確かめる。</div></div>
+      <pre><code># AIへの依頼例：実装前の設計レビュー
+次のIssueを実装可能な単位へ分解してください。
+
+目的：利用者が備品を1件予約できる
+制約：同じ備品の時間帯重複を許可しない。未ログインは予約不可。
+既存構成：TypeScript / REST API / PostgreSQL
+
+出力：
+1. 不足している前提と確認質問
+2. APIとDB変更の案
+3. 正常系・異常系・境界値テスト
+4. セキュリティ上の注意点
+5. 実装の順序
+
+コードはまだ書かず、設計上のリスクを優先して説明してください。</code></pre>
+    </section>
+    <section>
+      <div class="label">04 / ARTIFACTS</div><h2>残すべき成果物</h2><div class="deliverables"><div class="card"><h3>意図の記録</h3><ul class="check"><li>ユーザーストーリー</li><li>成功指標と非目標</li><li>スコープ・制約・未確定事項</li><li>採用しなかった案と理由</li></ul></div><div class="card"><h3>検証の記録</h3><ul class="check"><li>受入条件とテストの対応表</li><li>レビューコメントと対応結果</li><li>CI・セキュリティチェック結果</li><li>運用中のメトリクスと判断</li></ul></div></div><div class="note"><b>実践のコツ：</b> AIに渡したプロンプト、参照したファイル、採用した出力の要点をIssueやPRに残すと、後から再現・修正しやすくなります。</div></section>
+    <section>
+      <div class="label">05 / DECISION GATES</div><h2>承認ポイントを置く</h2><table><thead><tr><th>ゲート</th><th>承認者</th><th>確認する問い</th><th>AIに任せない判断</th></tr></thead><tbody><tr><td>要件確定</td><td>佐藤</td><td>誰の、どんな課題を解くのか</td><td>作る価値と優先順位</td></tr><tr><td>設計確定</td><td>鈴木＋田中</td><td>制約・障害・変更に耐えるか</td><td>技術的リスクの受容</td></tr><tr><td>PRマージ</td><td>鈴木＋田中</td><td>コードとテストが要件を満たすか</td><td>品質基準の例外</td></tr><tr><td>本番導入</td><td>3人全員</td><td>戻せるか、観測できるか</td><td>リリースの最終責任</td></tr></tbody></table></section>
+    <section>
+      <div class="label">06 / LESSONS</div><h2>この例から学べること</h2><div class="grid"><div class="card"><h3>速さは分割から生まれる</h3><p>AIに大きな機能を丸ごと頼むより、意図・設計・実装・検証に分けた方が品質を保ちやすくなります。</p></div><div class="card"><h3>成果物がチームをつなぐ</h3><p>3人全員が同じチャットを読む必要はありません。仕様、差分、テスト結果を共通言語にします。</p></div><div class="card"><h3>運用が次の要件になる</h3><p>リリース後の事実を次のIssueへ戻すことで、AI-DLCは単発の生成ではなく学習する循環になります。</p></div></div></section>
+  </main>
+  <footer><div>関連資料：<a href="index.html">AI-DLC 実践ガイド</a><br>このケースは学習用の架空例です。実際の導入では、組織のセキュリティ規程、データ分類、承認フローに合わせて調整してください。</div></footer>
+</body>
+</html>
